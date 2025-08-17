@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Vidal_Trancista Admin</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Vidal_Trancista</h2>
+            <p>Painel Admin</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link" onclick="showSection('dashboard')">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#appointments" class="nav-link" onclick="showSection('appointments')">
+                        <i class="fas fa-calendar-alt"></i>
+                        Agendamentos
+                        <span class="notification-badge" id="appointmentsBadge">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#courses" class="nav-link" onclick="showSection('courses')">
+                        <i class="fas fa-graduation-cap"></i>
+                        Cursos
+                        <span class="notification-badge" id="coursesBadge">2</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#customers" class="nav-link" onclick="showSection('customers')">
+                        <i class="fas fa-users"></i>
+                        Clientes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reports" class="nav-link" onclick="showSection('reports')">
+                        <i class="fas fa-chart-bar"></i>
+                        Relatórios
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#settings" class="nav-link" onclick="showSection('settings')">
+                        <i class="fas fa-cog"></i>
+                        Configurações
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span id="currentUser">Admin</span>
+            </div>
+            <button class="btn-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                Sair
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="sidebar-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="notifications">
+                    <button class="notification-btn" onclick="toggleNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">5</span>
+                    </button>
+                    <div class="notifications-dropdown" id="notificationsDropdown">
+                        <div class="notification-item">
+                            <i class="fas fa-calendar text-primary"></i>
+                            <div>
+                                <p>Novo agendamento</p>
+                                <small>Maria Silva - Box Braids</small>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <i class="fas fa-graduation-cap text-success"></i>
+                            <div>
+                                <p>Nova inscrição no curso</p>
+                                <small>João Santos - Curso Básico</small>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <i class="fas fa-clock text-warning"></i>
+                            <div>
+                                <p>Agendamento em 1 hora</p>
+                                <small>Ana Costa - Tranças Nagô</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="user-menu">
+                    <button class="user-btn" onclick="toggleUserMenu()">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#profile"><i class="fas fa-user"></i> Perfil</a>
+                        <a href="#settings"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>15</h3>
+                        <p>Agendamentos Hoje</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>8</h3>
+                        <p>Novos Alunos</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>R$ 2.450</h3>
+                        <p>Receita do Mês</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>127</h3>
+                        <p>Total de Clientes</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Próximos Agendamentos</h3>
+                    <div class="appointment-list">
+                        <div class="appointment-item">
+                            <div class="appointment-time">09:00</div>
+                            <div class="appointment-info">
+                                <strong>Maria Silva</strong>
+                                <span>Box Braids</span>
+                            </div>
+                            <div class="appointment-status pending">Pendente</div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-time">10:30</div>
+                            <div class="appointment-info">
+                                <strong>Ana Costa</strong>
+                                <span>Tranças Nagô</span>
+                            </div>
+                            <div class="appointment-status confirmed">Confirmado</div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-time">14:00</div>
+                            <div class="appointment-info">
+                                <strong>Carla Santos</strong>
+                                <span>Twist</span>
+                            </div>
+                            <div class="appointment-status confirmed">Confirmado</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3>Vendas de Cursos</h3>
+                    <div class="course-sales">
+                        <div class="course-item">
+                            <span>Curso Básico</span>
+                            <span class="course-count">12 vendas</span>
+                        </div>
+                        <div class="course-item">
+                            <span>Curso Avançado</span>
+                            <span class="course-count">8 vendas</span>
+                        </div>
+                        <div class="course-item">
+                            <span>Curso Profissional</span>
+                            <span class="course-count">5 vendas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments" class="content-section">
+            <div class="section-header">
+                <h2>Gerenciar Agendamentos</h2>
+                <div class="section-actions">
+                    <button class="btn btn-primary" onclick="showNewAppointmentModal()">
+                        <i class="fas fa-plus"></i>
+                        Novo Agendamento
+                    </button>
+                </div>
+            </div>
+            
+            <div class="filters">
+                <select id="statusFilter" onchange="filterAppointments()">
+                    <option value="">Todos os Status</option>
+                    <option value="pending">Pendente</option>
+                    <option value="confirmed">Confirmado</option>
+                    <option value="completed">Concluído</option>
+                    <option value="cancelled">Cancelado</option>
+                </select>
+                
+                <input type="date" id="dateFilter" onchange="filterAppointments()">
+                
+                <input type="text" id="searchFilter" placeholder="Buscar cliente..." onkeyup="filterAppointments()">
+            </div>
+            
+            <div class="appointments-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Cliente</th>
+                            <th>Serviço</th>
+                            <th>Contato</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointmentsTableBody">
+                        <tr>
+                            <td>15/01/2024 09:00</td>
+                            <td>Maria Silva</td>
+                            <td>Box Braids</td>
+                            <td>(11) 99999-1111</td>
+                            <td><span class="status pending">Pendente</span></td>
+                            <td>
+                                <button class="btn-action confirm" onclick="confirmAppointment(1)">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                                <button class="btn-action edit" onclick="editAppointment(1)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action cancel" onclick="cancelAppointment(1)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>15/01/2024 10:30</td>
+                            <td>Ana Costa</td>
+                            <td>Tranças Nagô</td>
+                            <td>(11) 99999-2222</td>
+                            <td><span class="status confirmed">Confirmado</span></td>
+                            <td>
+                                <button class="btn-action complete" onclick="completeAppointment(2)">
+                                    <i class="fas fa-check-double"></i>
+                                </button>
+                                <button class="btn-action edit" onclick="editAppointment(2)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action cancel" onclick="cancelAppointment(2)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="content-section">
+            <div class="section-header">
+                <h2>Monitoramento de Cursos</h2>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <h3>Curso Básico de Tranças</h3>
+                    <div class="course-stats">
+                        <div class="stat">
+                            <span class="stat-number">25</span>
+                            <span class="stat-label">Alunos Inscritos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">18</span>
+                            <span class="stat-label">Concluídos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">7</span>
+                            <span class="stat-label">Em Andamento</span>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn btn-secondary" onclick="viewCourseDetails('basico')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <h3>Curso Avançado</h3>
+                    <div class="course-stats">
+                        <div class="stat">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">Alunos Inscritos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">Concluídos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Em Andamento</span>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn btn-secondary" onclick="viewCourseDetails('avancado')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <h3>Curso Profissional Completo</h3>
+                    <div class="course-stats">
+                        <div class="stat">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Alunos Inscritos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Concluídos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Em Andamento</span>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn btn-secondary" onclick="viewCourseDetails('profissional')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recent-enrollments">
+                <h3>Inscrições Recentes</h3>
+                <div class="enrollments-list">
+                    <div class="enrollment-item">
+                        <div class="student-info">
+                            <strong>João Santos</strong>
+                            <span>Curso Básico</span>
+                        </div>
+                        <div class="enrollment-date">Hoje, 14:30</div>
+                        <div class="enrollment-status">
+                            <span class="status new">Nova</span>
+                        </div>
+                    </div>
+                    <div class="enrollment-item">
+                        <div class="student-info">
+                            <strong>Fernanda Lima</strong>
+                            <span>Curso Avançado</span>
+                        </div>
+                        <div class="enrollment-date">Ontem, 16:45</div>
+                        <div class="enrollment-status">
+                            <span class="status confirmed">Confirmada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections (customers, reports, settings) would go here -->
+        <section id="customers" class="content-section">
+            <h2>Clientes</h2>
+            <p>Seção de gerenciamento de clientes em desenvolvimento...</p>
+        </section>
+
+        <section id="reports" class="content-section">
+            <h2>Relatórios</h2>
+            <p>Seção de relatórios em desenvolvimento...</p>
+        </section>
+
+        <section id="settings" class="content-section">
+            <h2>Configurações</h2>
+            <p>Seção de configurações em desenvolvimento...</p>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Novo Agendamento</h3>
+                <button class="modal-close" onclick="closeModal('appointmentModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="newAppointmentForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome do Cliente</label>
+                        <input type="text" name="clientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" name="clientPhone" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Data</label>
+                        <input type="date" name="appointmentDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Horário</label>
+                        <input type="time" name="appointmentTime" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Serviço</label>
+                    <select name="service" required>
+                        <option value="">Selecione um serviço</option>
+                        <option value="box-braids">Box Braids</option>
+                        <option value="trancas-nago">Tranças Nagô</option>
+                        <option value="twist">Twist</option>
+                        <option value="cornrows">Cornrows</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Observações</label>
+                    <textarea name="notes" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('appointmentModal')">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Criar Agendamento
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>

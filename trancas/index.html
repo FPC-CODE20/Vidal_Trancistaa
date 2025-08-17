@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidal_Trancista - Especialista em Tranças</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>Vidal_Trancista</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="#services" class="nav-link">Serviços</a></li>
+                    <li><a href="#gallery" class="nav-link">Galeria</a></li>
+                    <li><a href="#courses" class="nav-link">Cursos</a></li>
+                    <li><a href="#booking" class="nav-link">Agendamento</a></li>
+                    <li><a href="#contact" class="nav-link">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transforme seu visual com tranças profissionais</h1>
+            <p>Especialista em todos os tipos de tranças com mais de 10 anos de experiência</p>
+            <div class="hero-buttons">
+                <a href="#booking" class="btn btn-primary">Agendar Horário</a>
+                <a href="#courses" class="btn btn-secondary">Ver Cursos</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="ChatGPT Image 7 de ago. de 2025, 00_32_53.png" alt="Tranças profissionais">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-cut"></i>
+                    <h3>Tranças Tradicionais</h3>
+                    <p>Box braids, tranças nagô e outros estilos clássicos</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Tranças Modernas</h3>
+                    <p>Estilos contemporâneos e tendências atuais</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Cuidados Especiais</h3>
+                    <p>Tratamentos e manutenção para cabelos crespos</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Cursos Profissionais</h3>
+                    <p>Aprenda técnicas profissionais de trançado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Carousel -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Tipos de Tranças</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <img src="tranca.jpg" alt="Box Braids">
+                        <div class="slide-content">
+                            <h3>Box Braids</h3>
+                            <p>Tranças quadradas clássicas, duráveis e versáteis</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="tranca homi.jpg" alt="Tranças Nagô">
+                        <div class="slide-content">
+                            <h3>Tranças Nagô</h3>
+                            <p>Estilo tradicional africano com padrões únicos</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="peituda.jpg" alt="Twist">
+                        <div class="slide-content">
+                            <h3>Twist</h3>
+                            <p>Tranças torcidas elegantes e modernas</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="red2.jpg" alt="Cornrows">
+                        <div class="slide-content">
+                            <h3>Cornrows</h3>
+                            <p>Tranças rentes ao couro cabeludo com designs criativos</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                    <span class="indicator" onclick="currentSlide(3)"></span>
+                    <span class="indicator" onclick="currentSlide(4)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2 class="section-title">Cursos Disponíveis</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="tranca.jpg" alt="Curso Básico">
+                    <div class="course-content">
+                        <h3>Curso Básico de Tranças</h3>
+                        <p>Aprenda as técnicas fundamentais do trançado profissional</p>
+                        <div class="course-info">
+                            <span class="duration"><i class="fas fa-clock"></i> 20 horas</span>
+                            <span class="price">R$ 299,00</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="buyCourse('basico')">Comprar Curso</button>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="trancas.jpg" alt="Curso Avançado">
+                    <div class="course-content">
+                        <h3>Curso Avançado</h3>
+                        <p>Técnicas avançadas e estilos modernos de trançado</p>
+                        <div class="course-info">
+                            <span class="duration"><i class="fas fa-clock"></i> 40 horas</span>
+                            <span class="price">R$ 599,00</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="buyCourse('avancado')">Comprar Curso</button>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="loira.jpg" alt="Curso Profissional">
+                    <div class="course-content">
+                        <h3>Curso Profissional Completo</h3>
+                        <p>Formação completa para se tornar um trancista profissional</p>
+                        <div class="course-info">
+                            <span class="duration"><i class="fas fa-clock"></i> 80 horas</span>
+                            <span class="price">R$ 999,00</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="buyCourse('profissional')">Comprar Curso</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2 class="section-title">Agendamento</h2>
+            <div class="booking-container">
+                <div class="booking-form">
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Tipo de Serviço</label>
+                            <select id="service" name="service" required>
+                                <option value="">Selecione um serviço</option>
+                                <option value="box-braids">Box Braids</option>
+                                <option value="trancas-nago">Tranças Nagô</option>
+                                <option value="twist">Twist</option>
+                                <option value="cornrows">Cornrows</option>
+                                <option value="manutencao">Manutenção</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Data</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Horário</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Selecione um horário</option>
+                                    <option value="08:00">08:00</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="17:00">17:00</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Observações</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Descreva detalhes sobre o serviço desejado..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Agendar Horário</button>
+                    </form>
+                </div>
+                <div class="booking-info">
+                    <h3>Informações Importantes</h3>
+                    <ul>
+                        <li><i class="fas fa-clock"></i> Horário de funcionamento: 07h às 20h</li>
+                        <li><i class="fas fa-calendar"></i> Atendimento de segunda a domingo</li>
+                        <li><i class="fas fa-phone"></i> Confirmação por WhatsApp</li>
+                        <li><i class="fas fa-info-circle"></i> Cancelamento até 24h antes</li>
+                    </ul>
+                    <div class="contact-info">
+                        <h4>Contato Direto</h4>
+                        <p><i class="fab fa-whatsapp"></i> +55 (71) 98740-7875</p>
+                        <p><i class="fas fa-envelope"></i> contato@vidaltrancista.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- SEÇÃO DE CONTATO -->
+<section id="contato" style="padding: 60px 20px; background-color: #2b2b2b; color: white;">
+    <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+
+        <!-- Informações de contato -->
+        <div style="flex: 1; min-width: 300px;">
+            <h2 style="color: #d2b48c; font-size: 2rem; margin-bottom: 15px;">Entre em Contato</h2>
+            <p style="margin: 5px 0;">📍 R. da Independência, 13 - Paripe, Salvador - BA, 40820-030</p>
+            <p style="margin: 5px 0;">📞 +55 (71) 98740-7875</p>
+            <p style="margin: 5px 0;">✉ contato@vidaltrancista.com</p>
+
+            <!-- Botão WhatsApp -->
+            <a href="https://wa.me/message/N36ZV3EQI447E1" target="_blank" 
+               style="display: inline-block; margin-top: 15px; padding: 10px 20px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-weight: bold;">
+               💬 Fale pelo WhatsApp
+            </a>
+        </div>
+
+        <!-- Mapa -->
+        <div style="flex: 1; min-width: 300px;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!4v1755279266969!6m8!1m7!1sYc-FsLcm5eNHi7Wa_vnktg!2m2!1d-12.84053597297663!2d-38.46872114967939!3f283.84673120793775!4f-5.902867074532878!5f0.5995535474791206" 
+                width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Vidal_Trancista</h3>
+                    <p>Especialista em tranças com mais de 10 anos de experiência, oferecendo serviços de qualidade e cursos profissionais.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#courses">Cursos</a></li>
+                        <li><a href="#booking">Agendamento</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> +55 71 98740-7875</p>
+                    <p><i class="fas fa-envelope"></i> contato@vidaltrancista.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vidal_Trancista. Todos os direitos reservados para Filipe Pitombo.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Course Purchase Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Comprar Curso</h3>
+            <div id="courseDetails"></div>
+            <form id="courseForm">
+                <div class="form-group">
+                    <label for="studentName">Nome Completo</label>
+                    <input type="text" id="studentName" name="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentEmail">E-mail</label>
+                    <input type="email" id="studentEmail" name="studentEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentPhone">Telefone</label>
+                    <input type="tel" id="studentPhone" name="studentPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="paymentMethod">Forma de Pagamento</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">Selecione</option>
+                        <option value="pix">PIX</option>
+                        <option value="cartao">Cartão de Crédito</option>
+                        <option value="boleto">Boleto</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Finalizar Compra</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
